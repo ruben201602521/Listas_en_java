@@ -50,6 +50,21 @@ public class Lista_Simple {
         
     }
     
+    public void MostrarListaSimpleEstudiantes(){
+     
+       Nodo_Simple NodoAuxiliar=new Nodo_Simple();
+       NodoAuxiliar=Primero;
+        while (NodoAuxiliar!=null) {
+            System.out.println(NodoAuxiliar.estudiante.NombreEstudiante);
+            System.out.println(NodoAuxiliar.estudiante.carnet);
+            System.out.println(NodoAuxiliar.estudiante.CorreoInstitucional);
+            System.out.println(NodoAuxiliar.estudiante.NumeroTelefono);
+            NodoAuxiliar=NodoAuxiliar.Siguiente;
+            
+        }
+        
+    }
+    
     
     
 }
