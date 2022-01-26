@@ -26,6 +26,7 @@ public class Lista_Simple {
         Nuevo.estudiante.NombreEstudiante=teclado.nextLine();
         System.out.println("ingrese carnet del estudiante");
         Nuevo.estudiante.carnet=teclado.nextInt();
+        teclado.nextLine();
         System.out.println("ingrese correo institucional del estudiante");
         Nuevo.estudiante.CorreoInstitucional=teclado.nextLine();
         System.out.println("ingrese numero de telefono del estudiante");
@@ -55,13 +56,31 @@ public class Lista_Simple {
        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
        NodoAuxiliar=Primero;
         while (NodoAuxiliar!=null) {
-            System.out.println(NodoAuxiliar.estudiante.NombreEstudiante);
-            System.out.println(NodoAuxiliar.estudiante.carnet);
-            System.out.println(NodoAuxiliar.estudiante.CorreoInstitucional);
-            System.out.println(NodoAuxiliar.estudiante.NumeroTelefono);
+            System.out.println("Nombre del Estudiante: "+NodoAuxiliar.estudiante.NombreEstudiante);
+            System.out.println("Carnet del Estudiante: "+NodoAuxiliar.estudiante.carnet);
+            System.out.println("Correo del Estudiante: "+NodoAuxiliar.estudiante.CorreoInstitucional);
+            System.out.println("Numero de telefono del Estudiante: "+NodoAuxiliar.estudiante.NumeroTelefono);
+            System.out.println("---------------------------------------------------------------");
             NodoAuxiliar=NodoAuxiliar.Siguiente;
             
         }
+        
+    }
+    
+    public void MenuDeMetodo(int metodo){
+        
+        switch (metodo) {
+            case 1:
+                InsertarNodosSimples();
+                break;
+                
+                case 2://cambiar a buscar estudiante
+                    MostrarListaSimpleEstudiantes();
+                    break;
+            default:
+                throw new AssertionError();
+        }
+        
         
     }
     
