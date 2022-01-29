@@ -8,7 +8,7 @@ public class Lista_Simple {
     Nodo_Simple Primero;
     Nodo_Simple Ultimo;
     Scanner teclado=new Scanner(System.in);
-    
+    public int menuMetodoss;
     public Lista_Simple(){
         
         Primero=null;
@@ -51,6 +51,21 @@ public class Lista_Simple {
         
     }
     
+    
+    public void BuscarElementoLista(){
+        
+        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
+        
+        NodoAuxiliar=Primero;
+        
+        
+        
+        
+        
+    }
+            
+    
+    
     public void MostrarListaSimpleEstudiantes(){
      
        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
@@ -69,7 +84,18 @@ public class Lista_Simple {
     
     public void MenuDeMetodo(int metodo){
         
-        switch (metodo) {
+        do{
+            
+            System.out.println("menu de opciones lista simple estudiantes");
+            System.out.println("[1] ingrese nuevo estudiante");
+            System.out.println("[2] buscar estudiante");
+            System.out.println("[3] modificar datos de estudiante");
+            System.out.println("[4] eliminar estudiante");
+            System.out.println("[5] mostrar estudiantes");
+            System.out.println("[6] salir");
+            menuMetodoss=teclado.nextInt();
+            
+        switch (menuMetodoss) {
             case 1:
                 InsertarNodosSimples();
                 break;
@@ -78,9 +104,12 @@ public class Lista_Simple {
                     MostrarListaSimpleEstudiantes();
                     break;
             default:
-                throw new AssertionError();
+               
+                break;
         }
         
+        }while (menuMetodoss!=6);
+            
         
     }
     

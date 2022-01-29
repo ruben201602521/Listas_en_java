@@ -30,17 +30,36 @@ public class Listas_Practica_Repaso {
             
             switch(OpcionMenuPrincipal){
                 
-                case 1:
+                case 1://cuando se escoge lista simple
+                    TipoList='s';
+                    listaSimpleEstudiante.MenuDeMetodo(OpcionSubMenu);
                     
-                    TipoLista(OpcionMenuPrincipal);
+                    break;
+                    
+                case 2://cuando se escoje lista doblemente enlazada
+                    TipoList='d';
+                    
+                    break;
+                case 3://cuando se escoje lista circular simple
+                    TipoList='a';
                     
                     break;
                     
-                case 2:
-                    
+                case 4://cuando se escoje lista circular doblemente enlazada
+                    TipoList='b';
                     
                     break;
-                
+                    
+                    
+                case 5://cuando se escoje pila
+                    TipoList='p';
+                    
+                    break;
+                    
+                case 6://cuando se escoje Cola
+                    TipoList='c';
+                    
+                    break;
                 default:
                     
                     System.out.println("ingrese una opcion en el rango de 1-6");
@@ -60,63 +79,76 @@ public class Listas_Practica_Repaso {
     }
     
     
-    public static void TipoLista(int num){
-        
-                    if (num==1) {//lista simple
-            
-                        TipoList='s';
-        }
-        
-                    do {
-                        
-                        System.out.println("menu de opciones lista simple estudiantes");
-                        System.out.println("[1] ingrese nuevo estudiante");
-                        System.out.println("[2] buscar estudiante");
-                        System.out.println("[3] modificar datos de estudiante");
-                        System.out.println("[4] eliminar estudiante");
-                        System.out.println("[5] mostrar estudiantes");
-                        System.out.println("[6] salir");
-                        OpcionSubMenu=tecla.nextInt();
-                        switch (OpcionSubMenu) {
-                            case 1:
-                                  if (TipoList=='s') {//lista simple seria
-                                   
-                                    listaSimpleEstudiante.MenuDeMetodo(OpcionSubMenu);
-                                }
-                                    
-                                  else if (TipoList=='d') {//lista doble seria
-                                    
-                                }
-                                 
-                                    else if (TipoList=='c') {//lista circular simple
-                                    
-                                }//seguir con las demas
-                               
-                                break;
-                                
-                            case 2:
-                                
-                                   if (TipoList=='s') {//lista simple seria
-                                    
-                                    listaSimpleEstudiante.MenuDeMetodo(OpcionSubMenu);
-                                }
-                                      else if (TipoList=='d') {//lista doble seria
-                                    
-                                }
-                                 
-                                    else if (TipoList=='c') {//lista circular simple
-                                    
-                                }//seguir con las demas
-                                   
-                                break;
-                            default:
-                                System.out.println("ingrese una opcion en el rango de 1-6");
-                               break;
-                        }
-                        
-                    } while (OpcionSubMenu!=6);
-        
-    }
+//    public static void TipoLista(){//este es el submenu que llama el menu principal para realizar las operaciones con la lista que se 
+//        //haya seleccionando
+//        
+//        
+//                    do {
+//                        
+//                        System.out.println("menu de opciones lista simple estudiantes");
+//                        System.out.println("[1] ingrese nuevo estudiante");
+//                        System.out.println("[2] buscar estudiante");
+//                        System.out.println("[3] modificar datos de estudiante");
+//                        System.out.println("[4] eliminar estudiante");
+//                        System.out.println("[5] mostrar estudiantes");
+//                        System.out.println("[6] salir");
+//                        OpcionSubMenu=tecla.nextInt();
+//                        switch (OpcionSubMenu) {
+//                            case 1:
+//                        switch (TipoList) {
+//                            case 's':
+//                                //lista simple seria
+//                                
+//                                listaSimpleEstudiante.MenuDeMetodo(OpcionSubMenu);
+//                                break;
+//                        //lista doblemente enlazada seria
+//                            case 'd':
+//                                break;
+//                        //lista circular simple
+//                            case 'a':
+//                                break;
+//                        //lista circular doblemnete enlazada
+//                            case 'b':
+//                                break;
+//                        //pila
+//                            case 'p':
+//                                break;
+//                        //cola
+//                            case 'c':
+//                                break;
+//                            default:
+//                                break;
+//                        }
+//                                break;
+//                                
+//                            case 2:
+//                                
+//                                   if (TipoList=='s') {//lista simple seria
+//                                    
+//                                    listaSimpleEstudiante.MenuDeMetodo(OpcionSubMenu);
+//                                }
+//                                      else if (TipoList=='d') {//lista doble seria
+//                                    
+//                                }
+//                                 
+//                                    else if (TipoList=='c') {//lista circular simple
+//                                    
+//                                }//seguir con las demas
+//                                   
+//                                break;
+//                                
+//                            case 6:
+//                                TipoList='f';
+//                                break;
+//                                
+//                            default:
+//                                System.out.println("ingrese una opcion en el rango de 1-6");
+//                               break;
+//                        }
+//                        
+//                    } while (OpcionSubMenu!=6);
+//        
+//    }
     
     
     
