@@ -21,31 +21,7 @@ public class Lista_Simple extends TDA{
     }
     
     
-    public void InsertarNodosSimples(){
-        
-        
-    }//ELIMINAR
-    
-    
-    public void BuscarElementoLista(){
-        
-        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
-        
-        NodoAuxiliar=Primero;
-        
-        
-        
-        
-        
-    }//ELIMINAR
-            
-    
-    
-    public void MostrarListaSimpleEstudiantes(){
-     
-    
-        
-    }//ELIMINAR
+  
     
    
 
@@ -82,18 +58,149 @@ public class Lista_Simple extends TDA{
     }
 
     @Override
-    public void Eliminar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Eliminar(int NumeroCarnet) {
+            
+          Nodo_Simple NodoAuxiliar=new Nodo_Simple();
+          Nodo_Simple NodoAnteriorAuxiliar=new Nodo_Simple();
+        
+        
+        NodoAuxiliar=Primero;
+        NodoAnteriorAuxiliar=null;
+        while (NodoAuxiliar!=null) {
+           
+            if (NodoAuxiliar.estudiante.carnet==NumeroCarnet) {
+                
+                
+                if (NodoAuxiliar==Primero) {
+                System.out.println("Nombre: "+NodoAuxiliar.estudiante.NombreEstudiante);
+                System.out.println("Carnet: "+NodoAuxiliar.estudiante.carnet);
+                System.out.println("Correo: "+NodoAuxiliar.estudiante.CorreoInstitucional);
+                System.out.println("Telefono: "+NodoAuxiliar.estudiante.NumeroTelefono);
+                System.out.println("--------------ESTUDIANTE--ELIMINADO---------------------");
+                
+                Primero=Primero.Siguiente;
+                
+                }
+               
+                else{
+                System.out.println("Nombre: "+NodoAuxiliar.estudiante.NombreEstudiante);
+                System.out.println("Carnet: "+NodoAuxiliar.estudiante.carnet);
+                System.out.println("Correo: "+NodoAuxiliar.estudiante.CorreoInstitucional);
+                System.out.println("Telefono: "+NodoAuxiliar.estudiante.NumeroTelefono);
+                System.out.println("--------------ESTUDIANTE--ELIMINADO---------------------");
+                NodoAnteriorAuxiliar.Siguiente=NodoAuxiliar.Siguiente;
+                    
+                }
+              
+            }
+            
+            
+            NodoAnteriorAuxiliar=NodoAuxiliar;
+            NodoAuxiliar=NodoAuxiliar.Siguiente;
+            
+        }
+
     }
 
     @Override
-    public void Modificar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Modificar(int NumeroDeCarnetEstudiante) {//va a modificar lo que tenga el nodo en su interior
+       int opcionMod;
+        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
+       
+       NodoAuxiliar=Primero;
+       
+        while (NodoAuxiliar!=null) {            
+            
+            if (NodoAuxiliar.estudiante.carnet==NumeroDeCarnetEstudiante) {
+                
+                do {  
+                    
+                    System.out.println("Que Desea Modificar");
+                    System.out.println("[1] modificar nombre");
+                    System.out.println("[2] modificar carnet");
+                    System.out.println("[3] modificar correo institutcional");
+                    System.out.println("[4] modificar numero de telefono");
+                    System.out.println("[5] Salir");
+                    System.out.println("INGRESE UNA OPCION DEL MENU");
+                    opcionMod=Integer.parseInt(teclado.nextLine());
+                
+                    switch (opcionMod)
+                    {
+                        case 1:
+                            System.out.println("ingrese nuevo nombre");
+                            NodoAuxiliar.estudiante.NombreEstudiante=teclado.nextLine();
+                            
+                            break;
+                            
+                        case 2:
+                            System.out.println("ingrese nuevo carnet");
+                            NodoAuxiliar.estudiante.carnet=Integer.parseInt(teclado.nextLine());
+                           
+                            break;
+                        
+                        case 3:
+                            System.out.println("ingrese nuevo correo");
+                            NodoAuxiliar.estudiante.CorreoInstitucional=teclado.nextLine();
+                            
+                            break;
+                            
+                        case 4:
+                            System.out.println("ingrese nuevo numero de telefono");
+                            NodoAuxiliar.estudiante.NumeroTelefono=Integer.parseInt(teclado.nextLine());
+                            break;
+                            
+                        case 5:
+                            System.out.println("ha salido del menu de modificacion ");
+                            break;
+                        
+                        default:
+                            System.out.println("ingrese una opcion en el rango de 1-5");
+                            break;
+                            
+                    }
+                    
+                    for (int i = 0; i < 4; i++) {
+                        System.out.println("");
+                    }
+                  
+                } while (opcionMod!=5);
+                
+            }
+            
+            NodoAuxiliar=NodoAuxiliar.Siguiente;
+        }
+       
+       
     }
 
     @Override
-    public void Buscar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void Buscar(int NumeroDeCarnet) {
+        
+        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
+        
+        
+        NodoAuxiliar=Primero;
+        
+        while (NodoAuxiliar!=null) {
+           
+            if (NodoAuxiliar.estudiante.carnet==NumeroDeCarnet) {
+                
+                
+                System.out.println("El Estudiante Existe");
+                System.out.println("Nombre: "+NodoAuxiliar.estudiante.NombreEstudiante);
+                System.out.println("Carnet: "+NodoAuxiliar.estudiante.carnet);
+                System.out.println("---------------------------------------------------");
+                
+            }
+            
+            
+            
+            NodoAuxiliar=NodoAuxiliar.Siguiente;
+            
+        }
+        
+        
+        
     }
 
     @Override

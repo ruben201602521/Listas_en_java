@@ -9,17 +9,19 @@ public class Listas_Practica_Repaso {
     public static Scanner tecla=new Scanner(System.in);
     public static int OpcionMenuPrincipal=0;
     public static int OpcionSubMenu=0;
-    public static char TipoList;
+   
     
     //tda listadoble=new listadoble
     //tda listacircular=new listacircular
     //public static int s []=new int[10];
-    public static TDA s[]=new TDA[6];
-    public static Lista_Simple listaSimpleEstudiante=new Lista_Simple();
+    public static TDA s[]=new TDA[6];//SERVIRA PARA ALMACENAR OBJETOS TIPO TDA QUE SE COMPORTARAN DEL TIPO QUE YO ESPECIFIQUE MAS ABAJO
+  
     public static void main(String[] args) {
         //AQUI EN LOS PROXIMOS TDA USTILIZO POLIMORFISMO
-       TDA ListaSimple=new Lista_Simple();//creo un objeto de tipo TDA de Contexto lista simple por la clase abstracta
-   //ASI AQUI EN EL VECTOR PUEDE ALMACENAR TIPO TDA QUE A SU VEZ SE ESTARA COMPORTANDO COMO EL TIPO DE LISTA O PILA O COLA QUE SE ESPECIFIQUE LUEGO
+       TDA ListaSimple=new Lista_Simple();//creo un objeto de tipo TDA de Contexto lista simple por la clase abstracta QUE ES LA PADRE
+   //ASI AQUI EN EL VECTOR ESTA ALMACENANDO TIPOS TDA QUE A SU VEZ SE ESTARA COMPORTANDO COMO EL TIPO DE LISTA O PILA O COLA QUE SE ESPECIFIQUE LUEGO
+   
+   
            s[0]=ListaSimple;
            s[1]=ListaSimple;//cambiar a lista doble
            s[2]=ListaSimple;//cambiar a lista circular simple
@@ -41,14 +43,24 @@ public class Listas_Practica_Repaso {
             System.out.println("[5] Para utilizar una pila de almacenamiento de estudiantes");
             System.out.println("[6] Para utilizar una cola de almacenamiento de estudiantes");
             System.out.println("[7] Salida");
-            OpcionMenuPrincipal=tecla.nextInt();
-            
+            System.out.println("INGRESE UNA OPCION DEL MENU");
+            OpcionMenuPrincipal=Integer.parseInt(tecla.nextLine());
+      
             switch(OpcionMenuPrincipal){
                 
                 case 1://cuando se escoge lista simple
                      
-                    MenuDeMetodoS(OpcionMenuPrincipal);
+                    MenuDeMetodoS(OpcionMenuPrincipal-1);//le pongo aqui menos 1 por que si ingresa la opcion de 1 entonces accederia para la lista doble
+                    //osea
                     
+                    /*
+                    el vector esta asi
+                 lugar>   1           2                3                    4           5     6
+                    [listaSimple][ListaDoble][ListaCircularSimple][ListaCircularDoble][Pila][Cola]
+        index de vector>  0           1                2                    3            4     5
+                    
+                    
+                    */
               break;
                     
                 case 2://cuando se escoje lista doblemente enlazada
@@ -74,24 +86,43 @@ public class Listas_Practica_Repaso {
                 
                     
                     break;
+                    
+                case 7:
+                    
+                    System.out.println("Ha finalizado el programa");
+                    break;
                 default:
                    
-                    System.out.println("ingrese una opcion en el rango de 1-6");
+                    System.out.println("ingrese una opcion en el rango de 1-7");
                     
                     break;
                 
                 
             }
                     
-            
-            
+            for (int i = 0; i < 4; i++) {
+                
+                System.out.println("");
+            }
         } while (OpcionMenuPrincipal!=7);
-        
+     
     }
+    //teclado.next()solo usa la primera palabra ejemplo ingreso hola mundo SOLO USA HOLA
+    //teclado.nextLine() si lee todo lo que ingreso
     
-    
- public static void MenuDeMetodoS(int posicionTDA){
+ public static void MenuDeMetodoS(int posicionVectorTDA){
+        //con posisicionVectorTDA voy a acceder al vector que tiene los objetos tipo TDA pero con contexto a la lista que se desea ver
+        /*
+        osea para si mandan numero 1 es para lista simple
         
+                 el vector esta asi
+                 lugar>   1           2                3                    4           5     6
+                    [listaSimple][ListaDoble][ListaCircularSimple][ListaCircularDoble][Pila][Cola]
+        index de vector>  0           1                2                    3            4     5
+        
+        */
+        
+        int DatoBuscar=0;
         do{
             
             System.out.println("menu de opciones lista simple estudiantes");
@@ -101,40 +132,61 @@ public class Listas_Practica_Repaso {
             System.out.println("[4] eliminar estudiante");
             System.out.println("[5] mostrar estudiantes");
             System.out.println("[6] salir");
-            OpcionSubMenu=tecla.nextInt();
+            System.out.println("INGRESE UNA OPCION DEL MENU");
+            OpcionSubMenu=Integer.parseInt(tecla.nextLine());//ES MEJOR HACER UN PARSEO Y LUEGO PONER TRY CACH PARA QUITAR PROBLEMAS DE 
+            //SI INGRESA UNA LETRA O UN CARACTER ENTONCES ESTE DIGA EN GENERAL EL ERRO SI HA INGRESADO AL GO QUE NO ES DEL TIPO NUMERICO
+            //Y QUE SE REGRESE AL METODO OTRA VEZ CUANDO LO HAGAS
             
+            //YA NO USES EL nextInt(); para el scanner por que no funcionan los metodos convencionales para absorber el salto de linea que trae
+            //a menos de que lo uses para una sola linea y que esta no se encuentre dentro de un ciclo por que si no se queda perdido y este 
+            //estara dando problemas mas adelante
+        
         switch (OpcionSubMenu) {
-            case 1:
-            //     listaSimpleEstudiante.Insertar();
-               s[posicionTDA].Insertar();
+            
+             case 1:
+         
+               s[posicionVectorTDA].Insertar();
                
                 break;
                 
-                case 2://cambiar a buscar estudiante
-                 s[posicionTDA].Mostrar();
+             case 2:
+                    System.out.println("ingrese el numero de carnet del estudiante a buscar");
+                    DatoBuscar=Integer.parseInt(tecla.nextLine());
+                    s[posicionVectorTDA].Buscar(DatoBuscar);
+                  
                  break;
                     
-                     case 3:
-                 
+             case 3:
+                  System.out.println("ingrese el numero de carnet del estudiante a modificar");
+                    DatoBuscar=Integer.parseInt(tecla.nextLine());
+                    s[posicionVectorTDA].Modificar(DatoBuscar);
+                   
                     break;
                     
-                     case 4:
-                 
+             case 4:
+                    System.out.println("ingrese el numero de carnet del estudiante a eliminar");
+                    DatoBuscar=Integer.parseInt(tecla.nextLine());
+                    s[posicionVectorTDA].Eliminar(DatoBuscar);
+                   
                     break;
                     
-                     case 5:
-                 
+             case 5:
+                    s[posicionVectorTDA].Mostrar();
                     break;
                     
-                     case 6:
-                 
+             case 6:
+                    System.out.println("Ha salido del Submenu de Acciones del TDA");
                     break;
                    
             default:
-               
+                System.out.println("ingrese una opcion en el rando de 1-6");
                 break;
         }
         
+            for (int i = 0; i < 4; i++) {
+                System.out.println("");
+            }
+      
         }while (OpcionSubMenu!=6);
             
         

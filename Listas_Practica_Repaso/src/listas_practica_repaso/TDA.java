@@ -54,11 +54,11 @@ La forma general de declarar un método abstracto en Java es:
     public boolean vacioTDA;
     public abstract void Insertar();//servira para definir la insercion de UN NODO,APILAR,ENCOLAR
     
-    public abstract void Eliminar();//servira para defirnr la eleminacion de UN NODO,DESAPILAR,ENCOLAR
+    public abstract void Eliminar(int Eliminar);//servira para defirnr la eleminacion de UN NODO,DESAPILAR,ENCOLAR
     
-    public abstract void Modificar();//servira para definir la modifcaion  de UN NODO,EN UNA PILA,EN UNA COLA
+    public abstract void Modificar(int Modificar);//servira para definir la modifcaion  de UN NODO,EN UNA PILA,EN UNA COLA
     
-    public abstract void Buscar();//servira para definir la busqueda de algun dato dentro de un NODO,UNA PILA ,UNA COLA
+    public abstract void Buscar(int Buscar);//servira para definir la busqueda de algun dato dentro de un NODO,UNA PILA ,UNA COLA
     
     public abstract void Mostrar();//servira para definir la impresion en consola de los datos de UNA LISTA,UNA PILA, UNA COLA
     
