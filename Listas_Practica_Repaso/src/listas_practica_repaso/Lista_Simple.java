@@ -3,10 +3,12 @@ package listas_practica_repaso;
 
 import java.util.Scanner;
 
-public class Lista_Simple {
+public class Lista_Simple extends TDA{
     
     Nodo_Simple Primero;
     Nodo_Simple Ultimo;
+    
+    
     Scanner teclado=new Scanner(System.in);
     public int menuMetodoss;
     public Lista_Simple(){
@@ -20,6 +22,35 @@ public class Lista_Simple {
     
     
     public void InsertarNodosSimples(){
+        
+        
+    }//ELIMINAR
+    
+    
+    public void BuscarElementoLista(){
+        
+        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
+        
+        NodoAuxiliar=Primero;
+        
+        
+        
+        
+        
+    }//ELIMINAR
+            
+    
+    
+    public void MostrarListaSimpleEstudiantes(){
+     
+    
+        
+    }//ELIMINAR
+    
+   
+
+    @Override
+    public void Insertar() {
         
         Nodo_Simple Nuevo=new Nodo_Simple();
         System.out.println("ingrese nombre del estudiante");
@@ -48,69 +79,63 @@ public class Lista_Simple {
             
         }
         
-        
     }
-    
-    
-    public void BuscarElementoLista(){
-        
-        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
-        
-        NodoAuxiliar=Primero;
-        
-        
-        
-        
-        
+
+    @Override
+    public void Eliminar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-            
+
+    @Override
+    public void Modificar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Buscar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void Mostrar() {
     
-    
-    public void MostrarListaSimpleEstudiantes(){
-     
        Nodo_Simple NodoAuxiliar=new Nodo_Simple();
        NodoAuxiliar=Primero;
-        while (NodoAuxiliar!=null) {
+       
+       vacioTDA=Vacio();
+       
+        if (vacioTDA==true) {//SI LA LISTA TIENE ELEMENTOS LOS IMPRIME
+              while (NodoAuxiliar!=null) {
             System.out.println("Nombre del Estudiante: "+NodoAuxiliar.estudiante.NombreEstudiante);
             System.out.println("Carnet del Estudiante: "+NodoAuxiliar.estudiante.carnet);
             System.out.println("Correo del Estudiante: "+NodoAuxiliar.estudiante.CorreoInstitucional);
             System.out.println("Numero de telefono del Estudiante: "+NodoAuxiliar.estudiante.NumeroTelefono);
             System.out.println("---------------------------------------------------------------");
             NodoAuxiliar=NodoAuxiliar.Siguiente;
+        }
+              
+      
             
         }
-        
+        else{//SI LA LISTA NO TIENE ELEMENTOS ENTONCES IMPRIME EL MENSAJE
+            System.out.println("NO HAY ELEMENTOS EN LA LISTA");
+        }
+    
     }
     
-    public void MenuDeMetodo(int metodo){
-        
-        do{
-            
-            System.out.println("menu de opciones lista simple estudiantes");
-            System.out.println("[1] ingrese nuevo estudiante");
-            System.out.println("[2] buscar estudiante");
-            System.out.println("[3] modificar datos de estudiante");
-            System.out.println("[4] eliminar estudiante");
-            System.out.println("[5] mostrar estudiantes");
-            System.out.println("[6] salir");
-            menuMetodoss=teclado.nextInt();
-            
-        switch (menuMetodoss) {
-            case 1:
-                InsertarNodosSimples();
-                break;
-                
-                case 2://cambiar a buscar estudiante
-                    MostrarListaSimpleEstudiantes();
-                    break;
-            default:
-               
-                break;
+
+    @Override
+    public boolean Vacio() {//VERIFICA SI LA LISTA CONTIENE ELMENTOS
+        if (Primero!=null) {
+           
+            vacioTDA=true;
         }
         
-        }while (menuMetodoss!=6);
+        else{
             
-        
+            vacioTDA=false;
+        }
+        return vacioTDA;
     }
     
     
