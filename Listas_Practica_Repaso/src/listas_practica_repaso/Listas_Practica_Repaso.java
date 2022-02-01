@@ -21,9 +21,10 @@ public class Listas_Practica_Repaso {
        TDA ListaSimple=new Lista_Simple();//creo un objeto de tipo TDA de Contexto lista simple por la clase abstracta QUE ES LA PADRE
    //ASI AQUI EN EL VECTOR ESTA ALMACENANDO TIPOS TDA QUE A SU VEZ SE ESTARA COMPORTANDO COMO EL TIPO DE LISTA O PILA O COLA QUE SE ESPECIFIQUE LUEGO
    
+        TDA ListaDoble=new Lista_Doblemente_Enlazada();
    
            s[0]=ListaSimple;
-           s[1]=ListaSimple;//cambiar a lista doble
+           s[1]=ListaDoble;//cambiar a lista doble
            s[2]=ListaSimple;//cambiar a lista circular simple
            s[3]=ListaSimple;//cambiar a lista circular doble
            s[4]=ListaSimple;//cambiar a pila
@@ -65,7 +66,7 @@ public class Listas_Practica_Repaso {
                     
                 case 2://cuando se escoje lista doblemente enlazada
             
-                    
+                    MenuDeMetodoS(OpcionMenuPrincipal-1);//asi entra en el indice 1 del vector que es la lista doble y sus metodos 
                     break;
                 case 3://cuando se escoje lista circular simple
                  
@@ -125,7 +126,7 @@ public class Listas_Practica_Repaso {
         int DatoBuscar=0;
         do{
             
-            System.out.println("menu de opciones lista simple estudiantes");
+            System.out.println("menu de opciones de estudiantes");
             System.out.println("[1] ingrese nuevo estudiante");
             System.out.println("[2] buscar estudiante");
             System.out.println("[3] modificar datos de estudiante");

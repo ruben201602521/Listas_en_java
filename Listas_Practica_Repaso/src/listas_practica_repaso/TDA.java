@@ -64,7 +64,7 @@ La forma general de declarar un método abstracto en Java es:
     
     public abstract boolean Vacio();
     
-    
+   
             
     
     

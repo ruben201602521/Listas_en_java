@@ -10,7 +10,7 @@ public class Lista_Simple extends TDA{
     
     
     Scanner teclado=new Scanner(System.in);
-    public int menuMetodoss;
+   
     public Lista_Simple(){
         
         Primero=null;
