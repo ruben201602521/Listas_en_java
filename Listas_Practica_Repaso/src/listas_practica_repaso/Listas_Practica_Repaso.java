@@ -10,7 +10,7 @@ public class Listas_Practica_Repaso {
     public static int OpcionMenuPrincipal=0;
     public static int OpcionSubMenu=0;
    
-    
+   
     //tda listadoble=new listadoble
     //tda listacircular=new listacircular
     //public static int s []=new int[10];
@@ -22,13 +22,16 @@ public class Listas_Practica_Repaso {
    //ASI AQUI EN EL VECTOR ESTA ALMACENANDO TIPOS TDA QUE A SU VEZ SE ESTARA COMPORTANDO COMO EL TIPO DE LISTA O PILA O COLA QUE SE ESPECIFIQUE LUEGO
    
         TDA ListaDoble=new Lista_Doblemente_Enlazada();
-   
+        TDA ListaCircular_simple=new Lista_Circular_Simple();
+        TDA ListaCircular_doble_enlazada=new Lista_Circular_Doblemente_Enlazada();
+        TDA Pila_=new Pila();
+        TDA Cola_=new Cola();
            s[0]=ListaSimple;
            s[1]=ListaDoble;//cambiar a lista doble
-           s[2]=ListaSimple;//cambiar a lista circular simple
-           s[3]=ListaSimple;//cambiar a lista circular doble
-           s[4]=ListaSimple;//cambiar a pila
-           s[5]=ListaSimple;//cambiar a cola
+           s[2]=ListaCircular_simple;//cambiar a lista circular simple
+           s[3]=ListaCircular_doble_enlazada;//cambiar a lista circular doble
+           s[4]=Pila_;//cambiar a pila
+           s[5]=Cola_;//cambiar a cola
            
            
            //crear los demas objetos tipo TDA con ello tendras en este vector S objetos de tipo TDA que estan adoptando la forma de otro 
@@ -69,23 +72,25 @@ public class Listas_Practica_Repaso {
                     MenuDeMetodoS(OpcionMenuPrincipal-1);//asi entra en el indice 1 del vector que es la lista doble y sus metodos 
                     break;
                 case 3://cuando se escoje lista circular simple
-                 
+                      MenuDeMetodoS(OpcionMenuPrincipal-1);//usara la posicion 2 del vector tda
                     
                     break;
                     
                 case 4://cuando se escoje lista circular doblemente enlazada
+                    MenuDeMetodoS(OpcionMenuPrincipal-1);
+                    
                  
                     break;
                     
                     
                 case 5://cuando se escoje pila
                
-                    
+                    MenuDeMetodoS(OpcionMenuPrincipal-1);
                     break;
                     
                 case 6://cuando se escoje Cola
                 
-                    
+                    MenuDeMetodoS(OpcionMenuPrincipal-1);
                     break;
                     
                 case 7:
@@ -122,6 +127,13 @@ public class Listas_Practica_Repaso {
         index de vector>  0           1                2                    3            4     5
         
         */
+        char Es_Pila_O_cola='N';
+        
+        if (posicionVectorTDA==4||posicionVectorTDA==5) {//si escoge la opcion de pila o cola utilizare el metodo eliminar de otra forma por el tipo de estructuras que son las pilas y colas
+     
+        Es_Pila_O_cola='S';
+        }
+      
         
         int DatoBuscar=0;
         do{
@@ -165,10 +177,17 @@ public class Listas_Practica_Repaso {
                     break;
                     
              case 4:
-                    System.out.println("ingrese el numero de carnet del estudiante a eliminar");
+                 if (Es_Pila_O_cola=='N') {
+                     System.out.println("ingrese el numero de carnet del estudiante a eliminar");
                     DatoBuscar=Integer.parseInt(tecla.nextLine());
                     s[posicionVectorTDA].Eliminar(DatoBuscar);
-                   
+                 }
+                 else if (Es_Pila_O_cola=='S') {
+                     //para una pila eliminara el primer elemento de la cima>>>LIFO
+                     //para una cola eliminara el primer elemento que haya ingresado durante la carga de datos>>FIFO
+                     s[posicionVectorTDA].Eliminar(0);
+                 }
+              
                     break;
                     
              case 5:

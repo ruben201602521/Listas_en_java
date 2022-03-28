@@ -171,7 +171,7 @@ public class Lista_Doblemente_Enlazada extends TDA{
     public void Buscar(int BuscarCarnet) {
         Nodo_Doble NodoAuxiliarDoble=new Nodo_Doble();
         NodoAuxiliarDoble=PrimeroDoble;
-        
+         char Encontrado='N';
         while (NodoAuxiliarDoble!=null) {
            
             if (NodoAuxiliarDoble.estudiante.carnet==BuscarCarnet) {
@@ -180,10 +180,13 @@ public class Lista_Doblemente_Enlazada extends TDA{
                 System.out.println("Nombre: "+NodoAuxiliarDoble.estudiante.NombreEstudiante);
                 System.out.println("Carnet: "+NodoAuxiliarDoble.estudiante.carnet);
                 System.out.println("---------------------------------------------------");
-                
+                Encontrado='S';
             }
             
             NodoAuxiliarDoble=NodoAuxiliarDoble.Siguiente;
+        }
+        if (Encontrado=='N') {
+            System.out.println("estudiante no encontrado");
         }
     }
 
@@ -198,7 +201,7 @@ public class Lista_Doblemente_Enlazada extends TDA{
        vacioTDA=Vacio();
        
         if (vacioTDA==true) {//SI LA LISTA TIENE ELEMENTOS LOS IMPRIME
-              while (NodoAuxiliarDoble!=null) {
+            while (NodoAuxiliarDoble!=null) {
             System.out.println("Nombre del Estudiante: "+NodoAuxiliarDoble.estudiante.NombreEstudiante);
             System.out.println("Carnet del Estudiante: "+NodoAuxiliarDoble.estudiante.carnet);
             System.out.println("Correo del Estudiante: "+NodoAuxiliarDoble.estudiante.CorreoInstitucional);

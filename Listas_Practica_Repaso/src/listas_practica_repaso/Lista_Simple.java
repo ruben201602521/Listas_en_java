@@ -178,7 +178,7 @@ public class Lista_Simple extends TDA{
         
         Nodo_Simple NodoAuxiliar=new Nodo_Simple();
         
-        
+         char Encontrado='N';
         NodoAuxiliar=Primero;
         
         while (NodoAuxiliar!=null) {
@@ -190,7 +190,7 @@ public class Lista_Simple extends TDA{
                 System.out.println("Nombre: "+NodoAuxiliar.estudiante.NombreEstudiante);
                 System.out.println("Carnet: "+NodoAuxiliar.estudiante.carnet);
                 System.out.println("---------------------------------------------------");
-                
+                 Encontrado='S';
             }
             
             
@@ -198,7 +198,9 @@ public class Lista_Simple extends TDA{
             NodoAuxiliar=NodoAuxiliar.Siguiente;
             
         }
-        
+        if (Encontrado=='N') {
+            System.out.println("estudiante no encontrado");
+        }
         
         
     }
